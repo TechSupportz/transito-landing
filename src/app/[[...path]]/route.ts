@@ -4,22 +4,32 @@ import { NextRequest, NextResponse, userAgent } from "next/server"
 
 type routeParams = {
     params: {
-        platform?: string[]
+        path?: string[]
     }
 }
 
 export async function GET(request: NextRequest, { params }: routeParams) {
-    console.log(params.platform)
+    console.log(params.path)
 
-    if (params.platform) {
-        const platform = params.platform[0]
+    if (params.path) {
+        const path = params.path[0]
 
-        if (platform === "android" || platform === "google-play") {
+        if (path === "android" || path === "google-play") {
             return NextResponse.redirect(googlePlayUrl)
         }
 
-        if (platform === "ios" || platform === "app-store") {
+        if (path === "ios" || path === "app-store") {
             return NextResponse.redirect(appStoreUrl)
+        }
+
+        if (path === "privacy") {
+            return NextResponse.redirect(
+                "https://pages.flycricket.io/transito-0/privacy.html",
+            )
+        }
+
+        if (path === "feedback") {
+            return NextResponse.redirect("https://forms.gle/EFWkSiVfYzsGeTjn8")
         }
     }
 
