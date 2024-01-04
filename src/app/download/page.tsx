@@ -1,7 +1,7 @@
 import { appStoreUrl, googlePlayUrl } from "@/utils/links"
 import Image from "next/image"
 import Link from "next/link"
-import Icon from "./icon"
+import Icon from "../../components/icon"
 
 export default function Home() {
     return (
@@ -9,7 +9,6 @@ export default function Home() {
             <div className="flex h-full flex-col items-center justify-center p-12">
                 <div className="flex flex-col items-center justify-center gap-6 text-center lg:flex-row lg:gap-12 lg:text-left">
                     <Icon />
-
                     <div className="max-w-[50ch] text-pretty p-4">
                         <div>
                             <h1 className="ml-[-0.25ch] text-6xl font-black">

@@ -1,14 +1,15 @@
 "use client"
+
 import Image from "next/image"
 import { useState } from "react"
 
-const Icon = () => {
+export default function Icon() {
     const [showQR, setShowQR] = useState(false)
 
     return (
         <div onClick={() => setShowQR(!showQR)}>
             {showQR ? (
-                <div className="grid size-fit min-h-fit min-w-fit place-items-center rounded-[2.5rem] shadow-2xl shadow-[#643dee] lg:rounded-[3rem] overflow-clip">
+                <div className="grid size-fit min-h-fit min-w-fit place-items-center overflow-clip rounded-[2.5rem] shadow-2xl shadow-[#643dee] lg:rounded-[3rem]">
                     <Image
                         src="/qr-code.svg"
                         alt="Transito Logo"
@@ -31,5 +32,3 @@ const Icon = () => {
         </div>
     )
 }
-
-export default Icon
