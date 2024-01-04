@@ -1,21 +1,15 @@
 import { appStoreUrl, googlePlayUrl } from "@/utils/links"
 import Image from "next/image"
 import Link from "next/link"
+import Icon from "./icon"
 
 export default function Home() {
     return (
         <div className="relative md:h-screen">
             <div className="flex h-full flex-col items-center justify-center p-12">
                 <div className="flex flex-col items-center justify-center gap-6 text-center lg:flex-row lg:gap-12 lg:text-left">
-                    <div className="grid size-fit min-h-fit min-w-fit place-items-center rounded-[2.5rem] bg-[#030109] shadow-2xl shadow-[#643dee] lg:rounded-[3rem] ">
-                        <Image
-                            src="/Transito-Icon.svg"
-                            alt="Transito Logo"
-                            className="m-6 p-12 sm:m-16 sm:p-4 lg:m-24"
-                            width={256}
-                            height={256}
-                        />
-                    </div>
+                    <Icon />
+
                     <div className="max-w-[50ch] text-pretty p-4">
                         <div>
                             <h1 className="ml-[-0.25ch] text-6xl font-black">
@@ -41,7 +35,7 @@ export default function Home() {
                                 right on time! 🚌 ⏰
                             </p>
                         </div>
-                        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 lg:mt-12 lg:justify-start">
+                        <div className="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:mt-12 lg:justify-start">
                             <Link href={appStoreUrl}>
                                 <Image
                                     src="/store-badges/App-Store.svg"
