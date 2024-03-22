@@ -24,7 +24,7 @@ export async function GET(request: NextRequest, { params }: routeParams) {
 
         if (path === "privacy") {
             return NextResponse.redirect(
-                "https://pages.flycricket.io/transito-0/privacy.html",
+                "https://tnitish.notion.site/Transito-Privacy-Policy-1411b1e8456d4b4d83a5147ed9dbf6c0?pvs=4",
             )
         }
 
