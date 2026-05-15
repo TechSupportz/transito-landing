@@ -1,29 +1,36 @@
 {
-    "name": "transito-landing",
-    "type": "module",
-    "version": "0.1.0",
-    "private": true,
-    "engines": {
-        "node": ">=22.12.0"
-    },
-    "scripts": {
-        "dev": "astro dev ",
-        "build": "astro check && astro build",
-        "preview": "astro preview",
-        "check": "astro check",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "astro": "6.3.1"
-    },
-    "devDependencies": {
-        "@astrojs/check": "^0.9.9",
-        "@tailwindcss/vite": "^4.0.0",
-        "@types/node": "^25.0.0",
-        "prettier": "^3.1.1",
-        "prettier-plugin-astro": "0.14.1",
-        "prettier-plugin-tailwindcss": "^0.6.0",
-        "tailwindcss": "^4.0.0",
-        "typescript": "^5"
-    }
+  "name": "transito-landing",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev ",
+    "build": "astro check && astro build",
+    "preview": "pnpm --filter transito-landing... run build && wrangler dev",
+    "check": "astro check",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "pnpm --filter transito-landing... run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.5.1",
+    "astro": "6.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^25.0.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5",
+    "wrangler": "^4.92.0"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
 }
