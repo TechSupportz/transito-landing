@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import Layout from "../layouts/Layout.astro"
 import { appStoreUrl, googlePlayUrl } from "../utils/links"
 ---
@@ -11,7 +12,7 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
             >
                 <button
                     id="transito-icon"
-                    class="grid size-fit cursor-pointer select-none appearance-none border-0 bg-transparent p-0"
+                    class="grid size-fit cursor-pointer appearance-none border-0 bg-transparent p-0 select-none"
                     type="button"
                     aria-label="Toggle Transito QR code"
                     aria-pressed="false"
@@ -21,27 +22,29 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         class="col-start-1 row-start-1 flex size-full items-center justify-center overflow-clip rounded-[2.5rem] opacity-0 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
                         aria-hidden="true"
                     >
-                        <img
+                        <Image
                             src="/qr-code.svg"
                             alt="Transito QR Code"
                             width="448"
                             height="448"
+                            loading="eager"
                         />
                     </span>
                     <span
                         data-logo
                         class="col-start-1 row-start-1 flex size-full items-center justify-center rounded-[2.5rem] bg-[#030109] opacity-100 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
                     >
-                        <img
+                        <Image
                             src="/Transito-Icon.svg"
                             alt="Transito Logo"
                             class="m-6 p-12 sm:m-16 sm:p-4 lg:m-24"
                             width="256"
                             height="256"
+                            loading="eager"
                         />
                     </span>
                 </button>
-                <div class="max-w-[50ch] text-pretty p-4">
+                <div class="max-w-[50ch] p-4 text-pretty">
                     <div>
                         <h1 class="ml-[-0.25ch] text-6xl font-black">
                             Transito
@@ -62,27 +65,29 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         <p>
                             So, whether you're racing against the clock or just
                             taking it easy, Transito's got your back. Get on
-                            board with Transito and catch your bus right on time!
-                            🚌 ⏰
+                            board with Transito and catch your bus right on
+                            time! 🚌 ⏰
                         </p>
                     </div>
                     <div
                         class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:mt-12 lg:justify-start"
                     >
                         <a href={appStoreUrl}>
-                            <img
+                            <Image
                                 src="/store-badges/App-Store.svg"
                                 alt="Download on the App Store"
                                 width="200"
                                 height="40"
+                                loading="eager"
                             />
                         </a>
                         <a href={googlePlayUrl}>
-                            <img
+                            <Image
                                 src="/store-badges/Google-Play.svg"
                                 alt="Get it on Google Play"
                                 width="216"
                                 height="40"
+                                loading="eager"
                             />
                         </a>
                     </div>
@@ -101,7 +106,8 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
     </main>
 
     <script>
-        const iconButton = document.querySelector<HTMLButtonElement>("#transito-icon")
+        const iconButton =
+            document.querySelector<HTMLButtonElement>("#transito-icon")
         const qr = iconButton?.querySelector<HTMLElement>("[data-qr]")
         const logo = iconButton?.querySelector<HTMLElement>("[data-logo]")
         let showQR = false
