@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite"
-import { defineConfig } from "astro/config"
+import { defineConfig, fontProviders } from "astro/config"
 
 const googlePlayUrl =
     "https://play.google.com/store/apps/details?id=com.tnitish.transito"
@@ -12,6 +12,22 @@ const feedbackUrl = "https://forms.gle/EFWkSiVfYzsGeTjn8"
 
 // https://astro.build/config
 export default defineConfig({
+    fonts: [
+        {
+            provider: fontProviders.fontsource(),
+            name: "Poppins",
+            cssVariable: "--font-poppins",
+            weights: [500, 700, 800, 900],
+            styles: ["normal"],
+        },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Inter",
+            cssVariable: "--font-inter",
+            weights: [400, 500, 600],
+            styles: ["normal"],
+        },
+    ],
     redirects: {
         "/android": googlePlayUrl,
         "/google-play": googlePlayUrl,

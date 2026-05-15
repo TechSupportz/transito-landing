@@ -1,20 +1,8 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Variable.ttf") format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Geist";
-    src: url("/fonts/Geist-Variable.woff2") format("woff2");
-    font-display: swap;
-}
-
-@theme {
-    --font-title: "Satoshi", sans-serif;
-    --font-sans: "Geist", sans-serif;
+@theme inline {
+    --font-title: var(--font-poppins);
+    --font-sans: var(--font-inter);
 }
 
 html,
@@ -25,5 +13,15 @@ body {
 }
 
 body {
-    font-family: "Satoshi", sans-serif;
+    font-family: var(--font-inter);
+	letter-spacing: -1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-poppins);
 }

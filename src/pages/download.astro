@@ -10,43 +10,33 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
             <div
                 class="flex flex-col items-center justify-center gap-6 text-center lg:flex-row lg:gap-12 lg:text-left"
             >
-                <button
-                    id="transito-icon"
-                    class="grid size-fit cursor-pointer appearance-none border-0 bg-transparent p-0 select-none"
-                    type="button"
-                    aria-label="Toggle Transito QR code"
+                <div
+                    id="transito-logo"
+                    class="group grid cursor-pointer select-none *:transition-opacity *:duration-200 *:ease-in"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Show Transito QR code"
                     aria-pressed="false"
                 >
-                    <span
-                        data-qr
-                        class="col-start-1 row-start-1 flex size-full items-center justify-center overflow-clip rounded-[2.5rem] opacity-0 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
-                        aria-hidden="true"
-                    >
-                        <Image
-                            src="/qr-code.svg"
-                            alt="Transito QR Code"
-                            width="448"
-                            height="448"
-                            loading="eager"
-                        />
-                    </span>
-                    <span
+                    <Image
+                        class={"col-start-1 row-start-1"}
+                        src={"/images/qr-code.svg"}
+                        alt={"Transito's App Icon"}
+                        width={512}
+                        height={512}
+                    />
+                    <Image
                         data-logo
-                        class="col-start-1 row-start-1 flex size-full items-center justify-center rounded-[2.5rem] bg-[#030109] opacity-100 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
-                    >
-                        <Image
-                            src="/Transito-Icon.svg"
-                            alt="Transito Logo"
-                            class="m-6 p-12 sm:m-16 sm:p-4 lg:m-24"
-                            width="256"
-                            height="256"
-                            loading="eager"
-                        />
-                    </span>
-                </button>
-                <div class="max-w-[50ch] p-4 text-pretty">
+                        class={"group-hover:opacity-0 opacity-100 col-start-1 row-start-1"}
+                        src={"/images/transito-icon.svg"}
+                        alt={"Transito's App Icon"}
+                        width={512}
+                        height={512}
+                    />
+                </div>
+                <div class="max-w-[56ch] p-4 text-pretty">
                     <div>
-                        <h1 class="ml-[-0.25ch] text-6xl font-black">
+                        <h1 class="ml-[-0.25ch] text-6xl font-extrabold">
                             Transito
                         </h1>
                         <h3 class="pt-1 text-xl font-medium">
@@ -54,7 +44,7 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         </h3>
                     </div>
                     <br />
-                    <div class="text-md font-sans">
+                    <div class="font-sans text-lg">
                         <p>
                             Transito is the go-to app for bus timings. It's all
                             about giving you the info you need, fast. We
@@ -99,26 +89,39 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                 <p
                     class="group text-xl font-semibold text-[#25184e] opacity-65 transition duration-300 hover:opacity-100 lg:text-2xl lg:opacity-45"
                 >
-                    Developed by Nitish 👨🏽‍💻
+                    built by nitish 👨🏽‍💻
                 </p>
             </a>
         </footer>
     </main>
 
-    <script>
-        const iconButton =
-            document.querySelector<HTMLButtonElement>("#transito-icon")
-        const qr = iconButton?.querySelector<HTMLElement>("[data-qr]")
-        const logo = iconButton?.querySelector<HTMLElement>("[data-logo]")
-        let showQR = false
+    <style>
+        [data-qr-locked="true"] [data-logo] {
+            opacity: 0;
+        }
+    </style>
 
-        iconButton?.addEventListener("click", () => {
-            showQR = !showQR
-            iconButton.setAttribute("aria-pressed", String(showQR))
-            qr?.classList.toggle("opacity-100", showQR)
-            qr?.classList.toggle("opacity-0", !showQR)
-            logo?.classList.toggle("opacity-0", showQR)
-            logo?.classList.toggle("opacity-100", !showQR)
+    <script>
+        const logoArea = document.querySelector<HTMLElement>("#transito-logo")
+
+        const showQR = () => {
+            const isQRLocked =
+                logoArea?.getAttribute("data-qr-locked") === "true"
+
+            if (isQRLocked) {
+                logoArea?.setAttribute("data-qr-locked", "false")
+                logoArea?.setAttribute("aria-pressed", "false")
+            } else {
+                logoArea?.setAttribute("data-qr-locked", "true")
+                logoArea?.setAttribute("aria-pressed", "true")
+            }
+        }
+
+        logoArea?.addEventListener("click", showQR)
+        logoArea?.addEventListener("keydown", event => {
+            if (event.key !== "Enter" && event.key !== " ") return
+            event.preventDefault()
+            showQR()
         })
     </script>
 </Layout>

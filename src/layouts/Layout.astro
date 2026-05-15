@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets"
 import "../styles/global.css"
 
 const title = "Transito"
@@ -23,6 +24,8 @@ const siteUrl = "https://transito.tnitish.com"
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="/social/twitter-image.png" />
+        <Font cssVariable="--font-poppins" preload />
+        <Font cssVariable="--font-inter" preload />
     </head>
     <body>
         <slot />
