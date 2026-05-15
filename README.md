@@ -1,13 +1,7 @@
-# Transito Landing
+<img width="1200" alt="Transito-Landing" src="https://github.com/user-attachments/assets/2417ba8c-6da6-4809-b8f6-3536daa82b6d" />
 
-A static Astro landing page for [Transito](https://github.com/TechSupportz/transito-flutter).
+# A simple yet smart landing page for [Transito](https://github.com/TechSupportz/transito-flutter)
 
-The root route detects iOS and Android browsers client-side and redirects users to the appropriate app store. Fixed routes such as `/android`, `/ios`, `/privacy`, and `/feedback` are configured in `astro.config.mjs`.
+On the surface, it's a just a simple landing page for Transito, but it's smart enough to detect the user's device and redirect them to the appropriate app store.
 
-## Commands
-
-```sh
-pnpm install
-pnpm dev
-pnpm build
-```
+#### [Try it out here!](https://transito.tnitish.com)
