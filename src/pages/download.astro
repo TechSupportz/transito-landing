@@ -12,7 +12,7 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
             >
                 <div
                     id="transito-logo"
-                    class="group grid cursor-pointer select-none *:transition-opacity *:duration-200 *:ease-in"
+                    class="group mb-4 grid size-80 cursor-pointer drop-shadow-2xl drop-shadow-[#8E85FF]/60 transition-all select-none hover:drop-shadow-[#8E85FF]/30 data-[qr-locked=true]:drop-shadow-[#8E85FF]/30 *:transition-opacity *:duration-200 *:ease-in md:size-96 lg:mb-0 lg:size-104"
                     role="button"
                     tabindex="0"
                     aria-label="Show Transito QR code"
@@ -24,14 +24,16 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         alt={"Transito's App Icon"}
                         width={512}
                         height={512}
+                        loading="lazy"
                     />
                     <Image
                         data-logo
-                        class={"group-hover:opacity-0 opacity-100 col-start-1 row-start-1"}
+                        class={"group-hover:opacity-0 group-data-[qr-locked=true]:opacity-0 opacity-100 col-start-1 row-start-1"}
                         src={"/images/transito-icon.svg"}
                         alt={"Transito's App Icon"}
                         width={512}
                         height={512}
+                        loading="eager"
                     />
                 </div>
                 <div class="max-w-[56ch] p-4 text-pretty">
@@ -39,7 +41,7 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         <h1 class="ml-[-0.25ch] text-6xl font-extrabold">
                             Transito
                         </h1>
-                        <h3 class="pt-1 text-xl font-medium">
+                        <h3 class="pt-1 text-xl font-semibold">
                             The last bus timing app you'll ever need
                         </h3>
                     </div>
@@ -86,20 +88,14 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
         </div>
         <footer class="absolute bottom-0 w-full pb-3 text-center lg:pb-4">
             <a href="https://tnitish.com">
-                <p
-                    class="group text-xl font-semibold text-[#25184e] opacity-65 transition duration-300 hover:opacity-100 lg:text-2xl lg:opacity-45"
+                <h5
+                    class="group text-xl font-semibold text-[#25184e] opacity-65 transition duration-300 hover:opacity-80 lg:text-2xl lg:opacity-45"
                 >
-                    built by nitish 👨🏽‍💻
-                </p>
+                    built by nitish.
+                </h5>
             </a>
         </footer>
     </main>
-
-    <style>
-        [data-qr-locked="true"] [data-logo] {
-            opacity: 0;
-        }
-    </style>
 
     <script>
         const logoArea = document.querySelector<HTMLElement>("#transito-logo")
