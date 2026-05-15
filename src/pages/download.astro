@@ -1,0 +1,118 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { appStoreUrl, googlePlayUrl } from "../utils/links"
+---
+
+<Layout>
+    <main class="relative md:h-screen">
+        <div class="flex h-full flex-col items-center justify-center p-12">
+            <div
+                class="flex flex-col items-center justify-center gap-6 text-center lg:flex-row lg:gap-12 lg:text-left"
+            >
+                <button
+                    id="transito-icon"
+                    class="grid size-fit cursor-pointer select-none appearance-none border-0 bg-transparent p-0"
+                    type="button"
+                    aria-label="Toggle Transito QR code"
+                    aria-pressed="false"
+                >
+                    <span
+                        data-qr
+                        class="col-start-1 row-start-1 flex size-full items-center justify-center overflow-clip rounded-[2.5rem] opacity-0 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
+                        aria-hidden="true"
+                    >
+                        <img
+                            src="/qr-code.svg"
+                            alt="Transito QR Code"
+                            width="448"
+                            height="448"
+                        />
+                    </span>
+                    <span
+                        data-logo
+                        class="col-start-1 row-start-1 flex size-full items-center justify-center rounded-[2.5rem] bg-[#030109] opacity-100 shadow-2xl shadow-[#643dee] transition-opacity duration-300 lg:rounded-[3rem]"
+                    >
+                        <img
+                            src="/Transito-Icon.svg"
+                            alt="Transito Logo"
+                            class="m-6 p-12 sm:m-16 sm:p-4 lg:m-24"
+                            width="256"
+                            height="256"
+                        />
+                    </span>
+                </button>
+                <div class="max-w-[50ch] text-pretty p-4">
+                    <div>
+                        <h1 class="ml-[-0.25ch] text-6xl font-black">
+                            Transito
+                        </h1>
+                        <h3 class="pt-1 text-xl font-medium">
+                            The last bus timing app you'll ever need
+                        </h3>
+                    </div>
+                    <br />
+                    <div class="text-md font-sans">
+                        <p>
+                            Transito is the go-to app for bus timings. It's all
+                            about giving you the info you need, fast. We
+                            cherry-picked the best features to keep to keep
+                            things straightforward, <em>no extra fluff</em>.
+                        </p>
+                        <br />
+                        <p>
+                            So, whether you're racing against the clock or just
+                            taking it easy, Transito's got your back. Get on
+                            board with Transito and catch your bus right on time!
+                            🚌 ⏰
+                        </p>
+                    </div>
+                    <div
+                        class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:mt-12 lg:justify-start"
+                    >
+                        <a href={appStoreUrl}>
+                            <img
+                                src="/store-badges/App-Store.svg"
+                                alt="Download on the App Store"
+                                width="200"
+                                height="40"
+                            />
+                        </a>
+                        <a href={googlePlayUrl}>
+                            <img
+                                src="/store-badges/Google-Play.svg"
+                                alt="Get it on Google Play"
+                                width="216"
+                                height="40"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="absolute bottom-0 w-full pb-3 text-center lg:pb-4">
+            <a href="https://tnitish.com">
+                <p
+                    class="group text-xl font-semibold text-[#25184e] opacity-65 transition duration-300 hover:opacity-100 lg:text-2xl lg:opacity-45"
+                >
+                    Developed by Nitish 👨🏽‍💻
+                </p>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        const iconButton = document.querySelector<HTMLButtonElement>("#transito-icon")
+        const qr = iconButton?.querySelector<HTMLElement>("[data-qr]")
+        const logo = iconButton?.querySelector<HTMLElement>("[data-logo]")
+        let showQR = false
+
+        iconButton?.addEventListener("click", () => {
+            showQR = !showQR
+            iconButton.setAttribute("aria-pressed", String(showQR))
+            qr?.classList.toggle("opacity-100", showQR)
+            qr?.classList.toggle("opacity-0", !showQR)
+            logo?.classList.toggle("opacity-0", showQR)
+            logo?.classList.toggle("opacity-100", !showQR)
+        })
+    </script>
+</Layout>

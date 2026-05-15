@@ -1,0 +1,30 @@
+---
+import "../styles/global.css"
+
+const title = "Transito"
+const description = "The last bus timing app you'll ever need"
+const siteUrl = "https://transito.tnitish.com"
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:image" content="/social/opengraph-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="/social/twitter-image.png" />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

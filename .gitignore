@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.pnpm-store
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -9,9 +10,11 @@
 # testing
 /coverage
 
-# next.js
+# framework output
 /.next/
+/.astro/
 /out/
+/dist/
 
 # production
 /build

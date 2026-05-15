@@ -1,23 +1,24 @@
 {
   "name": "transito-landing",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev --host 0.0.0.0 --port 8787",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 0.0.0.0 --port 8787",
+    "check": "astro check",
+    "astro": "astro"
   },
   "dependencies": {
-    "geist": "^1.2.0",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "astro": "6.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^25.0.0",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "prettier": "^3.1.1",

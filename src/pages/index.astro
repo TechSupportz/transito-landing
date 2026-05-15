@@ -1,0 +1,30 @@
+---
+import { appStoreUrl, googlePlayUrl } from "../utils/links"
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Transito</title>
+        <meta name="robots" content="noindex" />
+        <meta http-equiv="refresh" content="0; url=/download" />
+    </head>
+    <body>
+        <script is:inline define:vars={{ appStoreUrl, googlePlayUrl }}>
+            const userAgent = navigator.userAgent
+            const isIOS = /iPhone|iPad|iPod/i.test(userAgent)
+            const isAndroid = /Android/i.test(userAgent)
+
+            if (isIOS) {
+                window.location.replace(appStoreUrl)
+            } else if (isAndroid) {
+                window.location.replace(googlePlayUrl)
+            } else {
+                window.location.replace("/download")
+            }
+        </script>
+        <a href="/download">Download Transito</a>
+    </body>
+</html>
