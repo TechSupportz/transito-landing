@@ -5,55 +5,45 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
 ---
 
 <Layout>
-    <main class="relative md:h-screen">
-        <div class="flex h-full flex-col items-center justify-center p-12">
-            <div
-                class="flex flex-col items-center justify-center gap-6 text-center lg:flex-row lg:gap-12 lg:text-left"
+    <main
+        class="bg-transito-bg relative isolate flex min-h-screen flex-col overflow-hidden px-5 py-8 [background:var(--transito-page-background)] sm:px-8 lg:px-10"
+    >
+        <div
+            class="pointer-events-none absolute top-0 right-0 left-0 z-50 h-16 bg-linear-to-b from-transito-overscroll-bg to-transito-overscroll-bg/0"
+        >
+        </div>
+        <div
+            class="pointer-events-none absolute inset-0 -z-10 [background-image:var(--transito-grid-background)] mask-(--transito-grid-mask) bg-size-[5.5rem_5.5rem] opacity-70"
+        >
+        </div>
+        <div
+            class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center py-4 lg:py-16"
+        >
+            <section
+                class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"
+                aria-labelledby="hero-title"
             >
-                <div
-                    id="transito-logo"
-                    class="group mb-4 grid size-80 cursor-pointer drop-shadow-2xl drop-shadow-[#8E85FF]/60 transition-all select-none hover:drop-shadow-[#8E85FF]/30 data-[qr-locked=true]:drop-shadow-[#8E85FF]/30 *:transition-opacity *:duration-200 *:ease-in md:size-96 lg:mb-0 lg:size-104"
-                    role="button"
-                    tabindex="0"
-                    aria-label="Show Transito QR code"
-                    aria-pressed="false"
-                >
-                    <Image
-                        class={"col-start-1 row-start-1"}
-                        src={"/images/qr-code.svg"}
-                        alt={"Transito's App Icon"}
-                        width={512}
-                        height={512}
-                        loading="lazy"
-                    />
-                    <Image
-                        data-logo
-                        class={"group-hover:opacity-0 group-data-[qr-locked=true]:opacity-0 opacity-100 col-start-1 row-start-1"}
-                        src={"/images/transito-icon.svg"}
-                        alt={"Transito's App Icon"}
-                        width={512}
-                        height={512}
-                        loading="eager"
-                    />
-                </div>
-                <div class="max-w-[56ch] p-4 text-pretty">
-                    <div>
-                        <h1 class="ml-[-0.25ch] text-6xl font-extrabold">
-                            Transito
-                        </h1>
-                        <h3 class="pt-1 text-xl font-semibold">
-                            The last bus timing app you'll ever need
-                        </h3>
-                    </div>
-                    <br />
-                    <div class="font-sans text-lg">
+                <div class="order-2 text-center lg:order-1 lg:text-left">
+                    <h1
+                        id="hero-title"
+                        class="font-title text-transito-ink text-5xl leading-none font-extrabold tracking-normal sm:text-8xl lg:-ml-1 lg:text-9xl"
+                    >
+                        Transito
+                    </h1>
+                    <h2
+                        class="text-transito-heading mx-auto mt-3 max-w-xs text-xl leading-tight font-semibold text-balance sm:max-w-2xl sm:text-3xl lg:mx-0"
+                    >
+                        The last bus timing app you'll ever need
+                    </h2>
+                    <div
+                        class="text-transito-body mx-auto mt-5 max-w-sm space-y-4 text-base leading-7 tracking-normal sm:max-w-2xl sm:text-lg sm:leading-8 lg:mx-0 lg:mt-6"
+                    >
                         <p>
                             Transito is the go-to app for bus timings. It's all
                             about giving you the info you need, fast. We
                             cherry-picked the best features to keep to keep
                             things straightforward, <em>no extra fluff</em>.
                         </p>
-                        <br />
                         <p>
                             So, whether you're racing against the clock or just
                             taking it easy, Transito's got your back. Get on
@@ -62,39 +52,104 @@ import { appStoreUrl, googlePlayUrl } from "../utils/links"
                         </p>
                     </div>
                     <div
-                        class="mt-8 flex flex-col items-center justify-center gap-6 sm:flex-row lg:mt-12 lg:justify-start"
+                        class="mt-7 flex flex-row flex-wrap items-center justify-center gap-3 sm:mt-8 lg:justify-start"
                     >
-                        <a href={appStoreUrl}>
+                        <a
+                            href={appStoreUrl}
+                            aria-label="Download Transito on the App Store"
+                            class="focus-visible:ring-transito-purple/35 inline-flex min-h-15 items-center justify-center transition duration-200 hover:-translate-y-0.5 hover:drop-shadow-xl focus-visible:ring-4 focus-visible:outline-none"
+                        >
                             <Image
+                                class="h-auto w-40 sm:w-50 lg:w-50"
                                 src="/store-badges/App-Store.svg"
                                 alt="Download on the App Store"
                                 width="200"
-                                height="40"
+                                height="67"
                                 loading="eager"
                             />
                         </a>
-                        <a href={googlePlayUrl}>
+                        <a
+                            href={googlePlayUrl}
+                            aria-label="Get Transito on Google Play"
+                            class="focus-visible:ring-transito-purple/35 inline-flex min-h-15 items-center justify-center transition duration-200 hover:-translate-y-0.5 hover:drop-shadow-xl focus-visible:ring-4 focus-visible:outline-none"
+                        >
                             <Image
+                                class="h-auto w-43 sm:w-54 lg:w-54"
                                 src="/store-badges/Google-Play.svg"
                                 alt="Get it on Google Play"
                                 width="216"
-                                height="40"
+                                height="64"
                                 loading="eager"
                             />
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <footer class="absolute bottom-0 w-full pb-3 text-center lg:pb-4">
-            <a href="https://tnitish.com">
-                <h5
-                    class="group text-xl font-semibold text-[#25184e] opacity-65 transition duration-300 hover:opacity-80 lg:text-2xl lg:opacity-45"
+
+                <div
+                    class="order-1 flex justify-center lg:order-2 lg:justify-end"
                 >
-                    built by nitish.
-                </h5>
+                    <div class="relative">
+                        <span
+                            class="bg-transito-purple/20 absolute -top-6 -right-6 -z-10 size-40 rounded-full blur-3xl sm:-top-10 sm:-right-10 sm:size-64"
+                            aria-hidden="true"></span>
+                        <span
+                            class="border-transito-purple/25 absolute top-6 -right-6 -z-10 size-28 rounded-full border sm:top-10 sm:-right-10 sm:size-44"
+                            aria-hidden="true"></span>
+                        <span
+                            class="shadow-depth-panel absolute -top-4 -right-5 -z-10 h-24 w-28 rotate-6 rounded-3xl border border-white/70 bg-white/40 backdrop-blur-md sm:-top-8 sm:-right-10 sm:h-36 sm:w-44 sm:rounded-4xl"
+                            aria-hidden="true"></span>
+                        <span
+                            class="border-transito-purple/20 bg-transito-purple/10 shadow-depth-panel-soft absolute -bottom-4 -left-5 -z-10 h-20 w-24 -rotate-6 rounded-3xl border sm:-bottom-8 sm:-left-10 sm:h-32 sm:w-40 sm:rounded-4xl"
+                            aria-hidden="true"></span>
+                        <div
+                            id="transito-logo"
+                            class="group grid size-64 cursor-pointer filter-[drop-shadow(var(--shadow-logo))] transition duration-300 outline-none select-none *:transition-opacity *:duration-300 *:ease-out hover:-translate-y-1 hover:filter-[drop-shadow(var(--shadow-logo-hover))] data-[qr-locked=true]:filter-[drop-shadow(var(--shadow-logo-hover))] sm:size-88 lg:size-116"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Show Transito QR code"
+                            aria-describedby="qr-hint"
+                            aria-pressed="false"
+                        >
+                            <Image
+                                class="col-start-1 row-start-1 sm:rounded-4xl"
+                                src="/images/qr-code.svg"
+                                alt="QR code to download Transito"
+                                width={512}
+                                height={512}
+                                loading="lazy"
+                            />
+                            <Image
+                                data-logo
+                                class="col-start-1 row-start-1 opacity-100 group-hover:opacity-0 group-data-[qr-locked=true]:opacity-0 sm:rounded-4xl"
+                                src="/images/transito-icon.svg"
+                                alt="Transito app icon"
+                                width={512}
+                                height={512}
+                                loading="eager"
+                            />
+                        </div>
+                        <p id="qr-hint" class="sr-only">
+                            Tap the icon to reveal the QR code.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer
+            class="mx-auto mt-7 pb-4 w-full max-w-7xl bg-linear-to-t text-center lg:absolute lg:right-10 lg:bottom-6 lg:left-10 lg:mx-auto lg:mt-0 lg:text-left"
+        >
+            <a
+                href="https://tnitish.com"
+                class="text-transito-credit font-title focus-visible:ring-transito-purple/35 inline-flex rounded-full px-3 py-2 text-xl font-semibold opacity-80 transition hover:opacity-100 focus-visible:ring-3 focus-visible:outline-none lg:text-2xl"
+            >
+                built by nitish.
             </a>
         </footer>
+        <div
+            class="pointer-events-none absolute right-0 bottom-0 left-0 z-50 h-16 bg-linear-to-t from-transito-overscroll-bg to-transito-overscroll-bg/0"
+        >
+        </div>
     </main>
 
     <script>

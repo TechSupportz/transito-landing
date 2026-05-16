@@ -3,19 +3,65 @@
 @theme inline {
     --font-title: var(--font-poppins);
     --font-sans: var(--font-inter);
+    --color-transito-bg: #f6f4ff;
+    --color-transito-ink: #120f18;
+    --color-transito-heading: #312840;
+    --color-transito-body: #5b5365;
+    --color-transito-credit: #4a3d68;
+    --color-transito-purple: #8e85ff;
+    --color-transito-violet: #634dff;
+    --color-transito-overscroll-bg: #edeafe;
+    --shadow-store-hover: 0 14px 18px rgb(28 23 39 / 0.14);
+    --shadow-depth-panel: 0 18px 60px rgb(99 77 255 / 0.14);
+    --shadow-depth-panel-soft: 0 18px 60px rgb(99 77 255 / 0.12);
+    --shadow-logo: 0 30px 74px rgb(94 72 181 / 0.26);
+    --shadow-logo-hover: 0 30px 72px rgb(94 72 181 / 0.22);
+}
+
+:root {
+    --transito-page-background:
+        radial-gradient(
+            circle at 76% 15%,
+            rgb(142 133 255 / 0.3),
+            transparent 28rem
+        ),
+        radial-gradient(
+            circle at 12% 88%,
+            rgb(99 77 255 / 0.16),
+            transparent 24rem
+        ),
+        linear-gradient(135deg, #fbfaff 0%, #f0eeff 52%, #f8f7ff 100%);
+    --transito-grid-background:
+        linear-gradient(
+            90deg,
+            rgb(38 31 52 / 0.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(rgb(38 31 52 / 0.06) 1px, transparent 1px);
+    --transito-grid-mask: linear-gradient(
+        135deg,
+        transparent 0%,
+        black 18%,
+        black 82%,
+        transparent 100%
+    );
 }
 
 html,
 body {
     height: 100%;
     width: 100%;
-    background-color: #edeeff;
+    background: var(--transito-page-background);
+    background-color: var(--color-transito-overscroll-bg);
 }
 
 body {
     font-family: var(--font-inter);
-	letter-spacing: -1px;
+    letter-spacing: -1px;
+    color: var(--color-transito-ink);
 }
+
+
 
 h1,
 h2,
@@ -24,4 +70,41 @@ h4,
 h5,
 h6 {
     font-family: var(--font-poppins);
+}
+
+/*
+ * Tailwind breakpoint markers — for Chrome DevTools "Show media queries" visibility only.
+ * These are NOT used in the codebase. Do not reference these in any component styles.
+ *   xs:   456px   (custom)
+ *   sm:   640px   (tailwind default)
+ *   md:   768px   (tailwind default)
+ *   lg:   1024px  (tailwind default)
+ *   xl:   1280px  (tailwind default)
+ *   2xl:  1536px  (tailwind default)
+ *   wmax: 1600px  (custom)
+ */
+@media (min-width: 640px) {
+    :root {
+        --breakpoint: sm;
+    }
+}
+@media (min-width: 768px) {
+    :root {
+        --breakpoint: md;
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+        --breakpoint: lg;
+    }
+}
+@media (min-width: 1280px) {
+    :root {
+        --breakpoint: xl;
+    }
+}
+@media (min-width: 1536px) {
+    :root {
+        --breakpoint: 2xl;
+    }
 }
