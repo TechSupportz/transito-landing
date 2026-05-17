@@ -11,6 +11,7 @@ const appStoreUrl =
 const privacyUrl =
     "https://tnitish.notion.site/Transito-Privacy-Policy-1411b1e8456d4b4d83a5147ed9dbf6c0?pvs=4"
 const feedbackUrl = "https://forms.gle/EFWkSiVfYzsGeTjn8"
+const deleteAccountUrl = "https://forms.gle/kKi9vwijWcmt81M19"
 
 // https://astro.build/config
 export default defineConfig({
@@ -38,6 +39,7 @@ export default defineConfig({
       "/app-store": appStoreUrl,
       "/privacy": privacyUrl,
       "/feedback": feedbackUrl,
+	  "/delete-account": deleteAccountUrl
   },
 
   vite: {
